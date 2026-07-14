@@ -1,0 +1,158 @@
+//ResponseType Game2C_GmDataChange
+message C2Game_GmDataChange // IActorRequest
+{
+	int32 RpcId = 90;
+	repeated PlayerDataProto DataNodes = 1;	//玩家数据                                         
+}
+
+message Game2C_GmDataChange // IActorResponse
+{
+	int32 RpcId = 90;
+	int32 Error = 91;
+	string Message = 92;
+}
+
+//ResponseType Game2C_GmBagAdd
+message C2Game_GmBagAdd // IActorRequest
+{
+	int32 RpcId = 90;
+	int32 ConfigId = 1;						//物资Id
+	int32 Num = 2;							//物资数量                                 
+}
+
+message Game2C_GmBagAdd // IActorResponse
+{
+	int32 RpcId = 90;
+	int32 Error = 91;
+	string Message = 92;
+}
+
+////////////////////////////////////GM属性///////////////////////////////
+//玩家总属性消息体
+message PlayerPropGmProto
+{
+	int32 nPropEnumId = 1;						//属性的枚举Id
+    double lPropNum = 2;						//属性数值
+}
+
+//ResponseType Game2C_GmTotalProp
+message C2Game_GmTotalProp // IActorRequest
+{
+	int32 RpcId = 90;             
+}
+
+message Game2C_GmTotalProp // IActorResponse
+{
+	int32 RpcId = 90;
+	int32 Error = 91;
+	string Message = 92;
+              
+	repeated PlayerPropGmProto pListTotalProp = 1;	//属性消息列表
+}
+
+
+//ResponseType Game2C_GmSystemProp
+message C2Game_GmSystemProp // IActorRequest
+{
+	int32 RpcId = 90;  
+	
+	int32 nSystemEnumId = 1;						//系统枚举
+}
+
+message Game2C_GmSystemProp // IActorResponse
+{
+	int32 RpcId = 90;
+	int32 Error = 91;
+	string Message = 92;
+              
+	repeated PlayerPropGmProto pListSystemProp = 1;	//属性消息列表
+}
+
+
+////////////////////////////////////GM日志///////////////////////////////
+
+//玩家数据日志消息体
+message PlayerDataOss
+{
+	int64 lTime = 1;					//日志时间
+	int32 nConfigId = 2;				//数值Id
+	int64 lChangeNum = 3;				//该变量
+	int64 lRealNum = 4;					//真实值
+	string szReason = 5;				//日志原因
+}
+
+//ResponseType Game2C_GmOssData
+message C2Game_GmOssData // IActorRequest
+{
+	int32 RpcId = 90;
+	int32 pageNum = 1;           	//请求页数                 
+}
+
+message Game2C_GmOssData // IActorResponse
+{
+	int32 RpcId = 90;
+	int32 Error = 91;
+	string Message = 92;
+
+	int32 nTotalPage = 1;      	    			//总页数                    
+	repeated PlayerDataOss pListDataOss = 2;	//数值日志列表
+}
+
+//玩家数据日志消息体
+message PlayerBagOss
+{
+	int64 lTime = 1;					//日志时间
+	int32 nConfigId = 2;				//数值Id
+	int32 lChangeNum = 3;				//该变量
+	int32 lRealNum = 4;					//真实值
+	string szReason = 5;				//日志原因
+}
+
+//ResponseType Game2C_GmOssBag
+message C2Game_GmOssBag // IActorRequest
+{
+	int32 RpcId = 90;
+	int32 pageNum = 1;           	//请求页数                 
+}
+
+message Game2C_GmOssBag // IActorResponse
+{
+	int32 RpcId = 90;
+	int32 Error = 91;
+	string Message = 92;
+
+	int32 nTotalPage = 1;      	    			//总页数                    
+	repeated PlayerBagOss pListBagOss = 2;		//背包日志列表
+}
+
+//玩家属性日志消息体
+message PlayerPropOss
+{
+	int32 nPropEnumId = 1;					//属性枚举Id
+	int32 nOssId = 2;						//OssId
+	int32 nSystemId = 3;					//系统Id
+	
+	double dwChangeNum = 4;					//该变量
+	double dwRealNum = 5;					//真实值
+	string szReason = 6;					//日志原因
+}
+
+//ResponseType Game2C_GmOssProp
+message C2Game_GmOssProp // IActorRequest
+{
+	int32 RpcId = 90;
+	int32 pageNum = 1;           	//请求页数                 
+}
+
+message Game2C_GmOssProp // IActorResponse
+{
+	int32 RpcId = 90;
+	int32 Error = 91;
+	string Message = 92;
+
+	int32 nTotalPage = 1;      	    				//总页数                    
+	repeated PlayerPropOss pListPropOss = 2;		//属性日志列表
+}
+
+
+

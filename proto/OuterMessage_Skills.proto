@@ -1,0 +1,134 @@
+//--------------技能组件--------------
+//技能总消息体
+message SkillsDataProto
+{
+	repeated SkillsProto listSkillsData = 1;			//技能列表
+	repeated SkillsSubNodeProto listSubSkillsData = 2;		//技能节点列表
+	SkillsEquipProto EquipSkills = 3;							//已装备技能
+}
+//技能数据消息体
+message SkillsProto
+{
+	int32 SkillsId = 1; 					//技能配置Id
+	int32 Level = 2; 						//研习等级
+	repeated int32 Prama = 3;				//技能参数
+}
+
+//技能节点数据消息体
+message SkillsSubNodeProto
+{
+	int32 SubNodeId = 1;	 				//节点配置Id
+	int32 Level = 2; 						//节点等级
+}
+
+//技能组件数据消息体
+message SkillsEquipProto
+{
+	repeated int32 EquipSkillsIds = 1;			//装备上的技能Id列表
+	//repeated SkillsNodeProto SkillsNodes = 2;	//已有技能列表
+	// int32 UnlockNum = 3;						//允许装备技能槽位数
+}
+
+//请求领悟技能
+//ResponseType Game2C_SkillsLearn
+message C2Game_SkillsLearn // IActorRequest
+{
+	int32 RpcId = 90;
+	int32 SkillsId = 1; 						//技能配置Id
+}
+
+message Game2C_SkillsLearn // IActorResponse
+{
+	int32 RpcId = 90;
+	int32 Error = 91;
+	string Message = 92;
+	int32 SkillsId = 1; 						//技能配置Id
+	int32 Level = 2;							//技能等级
+	repeated int32 Prama = 3;					//技能参数
+}
+
+//请求研习（升级）技能
+//ResponseType Game2C_SkillsLevelUp
+message C2Game_SkillsLevelUp // IActorRequest
+{
+	int32 RpcId = 90;
+	int32 SkillsId = 1; 						//技能配置Id
+}
+
+message Game2C_SkillsLevelUp // IActorResponse
+{
+	int32 RpcId = 90;
+	int32 Error = 91;
+	string Message = 92;
+	int32 SkillsId = 1; 						//技能配置Id
+	int32 Level = 2;							//技能等级
+	repeated int32 Prama = 3;					//技能参数
+}
+
+//请求装备技能
+//ResponseType Game2C_SkillsEquip
+message C2Game_SkillsEquip // IActorRequest
+{
+	int32 RpcId = 90;
+	int32 SkillsId = 1; 						//技能配置Id
+}
+
+message Game2C_SkillsEquip // IActorResponse
+{
+	int32 RpcId = 90;
+	int32 Error = 91;
+	string Message = 92;
+	int32 SkillsId = 1; 						//技能配置Id
+}
+
+//请求卸下技能
+//ResponseType Game2C_SkillsUnequip
+message C2Game_SkillsUnequip // IActorRequest
+{
+	int32 RpcId = 90;
+	int32 SkillsId = 1; 						//技能配置Id
+}
+
+message Game2C_SkillsUnequip // IActorResponse
+{
+	int32 RpcId = 90;
+	int32 Error = 91;
+	string Message = 92;
+	int32 SkillsId = 1; 						//技能配置Id
+}
+
+//--------------技能节点--------------
+//请求激活技能节点
+//ResponseType Game2C_SkillsSubActive
+message C2Game_SkillsSubActive // IActorRequest
+{
+	int32 RpcId = 90;
+	int32 SubNodeId = 1; 					//节点配置Id
+}
+
+message Game2C_SkillsSubActive // IActorResponse
+{
+	int32 RpcId = 90;
+	int32 Error = 91;
+	string Message = 92;
+	int32 SubNodeId = 1; 					//节点配置Id
+	int32 SubLevel = 2;						//节点等级
+}
+
+//请求升级技能节点
+//ResponseType Game2C_SkillsSubLevelUp
+message C2Game_SkillsSubLevelUp // IActorRequest
+{
+	int32 RpcId = 90;
+	int32 SubNodeId = 1; 					//节点配置Id
+}
+
+message Game2C_SkillsSubLevelUp // IActorResponse
+{
+	int32 RpcId = 90;
+	int32 Error = 91;
+	string Message = 92;
+	int32 SubNodeId = 1; 					//节点配置Id
+	int32 SubLevel = 2;						//节点等级
+	repeated int32 Prama = 3;				//技能参数
+}

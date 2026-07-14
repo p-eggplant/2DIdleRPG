@@ -1,0 +1,71 @@
+//增加或者更新Unit缓存
+message Other2UnitCache_AddOrUpdateUnit //IActorMessage
+{
+	int32 RpcId = 90;
+	int64 playerId = 1;//需要缓存的playerId
+	int32 ZoneId = 2;//数据库Id
+	repeated string ComponentTypeList = 3;//组件类型
+	repeated bytes ComponentBytes = 4;//组件序列化后的bytes
+}
+
+//获取Unit缓存
+//ResponseType UnitCache2Other_GetUnit
+message Other2UnitCache_GetUnit //IActorRequest
+{
+	int32 RpcId = 90;
+	int64 playerId = 1;//玩家ID
+	int32 ZoneId = 2;//数据库Id
+	repeated string ComponentTypeList = 3;//需要获取的组件名
+}
+
+message UnitCache2Other_GetUnit //IActorResponse
+{
+	int32 RpcId = 90;
+	int32 Error = 91;
+	string Message = 92;
+	repeated bytes ComponentBytes = 1; //组件列表
+	repeated string ComponentTypeList = 2;//组件名列表
+}
+
+//删除Unit缓存
+//ResponseType UnitCache2Other_DeleteUnit
+message Other2UnitCache_DeleteUnit //IActorRequest
+{
+	int32 RpcId = 90;
+	int64 playerId = 1;
+	int32 ZoneId = 2;//数据库Id
+	string ComponentName = 3;
+}
+
+message UnitCache2Other_DeleteUnit //IActorResponse
+{
+	int32 RpcId = 90;
+	int32 Error = 91;
+	string Message = 92;
+}
+
+//增加或者更新class缓存
+message Other2UnitCache_AddOrUpdateClass //IActorMessage
+{
+	int32 RpcId = 90;
+	int64 playerId = 1;//需要缓存的playerId
+	string ClassType = 2; //类型
+	repeated bytes ClassBytes = 3;//添加的序列化后的 组件 列表
+}
+
+//获取Unit缓存
+//ResponseType UnitCache2Other_GetClass
+message Other2UnitCache_GetClass // IActorRequest
+{
+	int32 RpcId = 90;
+	int64 playerId = 1;//玩家ID
+	string classType = 2 ;//class 类型名称 
+}
+
+message UnitCache2Other_GetClass // IActorResponse
+{
+	int32 RpcId = 90;
+	int32 Error = 91;
+	string Message = 92;
+	repeated bytes ClassBytes = 1;//获取的序列化后的 类 列表
+}

@@ -1,0 +1,16 @@
+//--------------技能组件--------------
+//技能总消息体
+message PlayerLoginInfo // IActorMessage
+{
+	int64 PlayerID = 1;
+
+	// PlayerDataComponent
+	repeated PlayerDataProto PlayerDataComponent = 2;
+
+	// PlayerBagComponent
+	repeated PlayerBagProto PlayerBagComponent = 3;
+
+	// PlayerROleUpComponent
+	PlayerRoleUpProto PlayerRoleUpComponent = 4;
+
+}

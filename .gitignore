@@ -1,0 +1,78 @@
+# ============================================
+# 编译输出 - 全部忽略
+# ============================================
+Bin/
+**/bin/
+**/obj/
+*.dll
+*.exe
+*.pdb
+*.deps.json
+*.runtimeconfig.json
+*.nupkg
+*.apphost.exe
+
+# ============================================
+# Unity 缓存 - 全部忽略
+# ============================================
+ET6/Unity/Library/
+ET6/Unity/Temp/
+ET6/Unity/Logs/
+ET6/Unity/UserSettings/
+ET6/Unity/Assets/StreamingAssets/
+ET6/Unity/Assets/StreamingAssets.meta
+
+# ============================================
+# ILRuntime 自动生成的绑定代码 - 建议忽略
+# 多人协作时如需上传，注释掉下面这一行
+# ============================================
+ET6/Unity/Assets/Mono/ILRuntime/Generate/
+
+# ============================================
+# Unity 编译产物
+# ============================================
+ET6/Unity/Assets/Bundles/Code/Code.dll.bytes
+ET6/Unity/Assets/Bundles/Code/Code.dll.bytes.meta
+ET6/Unity/Assets/Bundles/Code/Code.pdb.bytes
+ET6/Unity/Assets/Bundles/Code/Code.pdb.bytes.meta
+*.csproj
+
+# ============================================
+# 发布产物
+# ============================================
+ET6/Release/
+
+# ============================================
+# 日志
+# ============================================
+ET6/Logs/
+ET6/Unity/Logs/
+[Ll]ogs/
+[Ll]og/
+
+# ============================================
+# IDE/编辑器
+# ============================================
+.vs/
+.vscode/
+.idea/
+*.suo
+*.user
+*.userprefs
+*.opensdf
+*.sdf
+
+# ============================================
+# 系统文件
+# ============================================
+*.DS_Store
+Thumbs.db
+desktop.ini
+
+# ============================================
+# 临时文件
+# ============================================
+[Tt]emp/
+[Tt]mp/
+```
+

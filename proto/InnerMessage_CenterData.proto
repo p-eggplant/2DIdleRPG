@@ -1,0 +1,39 @@
+//广播单条聊天数据（世界）
+message Game2Game_ChatInfoAddGlobal // IActorMessage
+{
+	//ChatInfoNodeProto ChatInfos = 1;				//聊天数据节点
+}
+
+//获取玩家个人信息数据
+//ResponseType Game2Game_CenterDataPlayerInfoRes
+message Game2Game_CenterDataPlayerInfoReq // IActorRequest
+{
+	int32 RpcId = 90;
+	int64 PlayerId = 1;
+}
+
+message Game2Game_CenterDataPlayerInfoRes // IActorResponse
+{
+	int32 RpcId = 90;
+	int32 Error = 91;
+	string Message = 92;
+	//CenterDataPlayerInfoProto PlayerInfo = 1;	//玩家个人信息数据
+}
+
+//获取玩家战力对比数据
+//ResponseType Game2Game_CenterDataPlayerCompareRes
+message Game2Game_CenterDataPlayerCompareReq // IActorRequest
+{
+	int32 RpcId = 90;
+	int64 PlayerId = 1;
+}
+
+message Game2Game_CenterDataPlayerCompareRes // IActorResponse
+{
+	int32 RpcId = 90;
+	int32 Error = 91;
+	string Message = 92;
+	repeated int64 Numeric = 1;							//玩家Unit属性
+	repeated int64 OtherNumeric = 2;					//玩家非Unit属性（影响战力值的）
+	//repeated PlayerCompareSystemProto SystemDatas = 3;	//玩家所有系统影响的属性
+}

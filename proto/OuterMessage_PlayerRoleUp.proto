@@ -1,0 +1,22 @@
+//玩家等级消息体
+message PlayerRoleUpProto 
+{
+	int32 CurLevel = 1;		//当前等级
+}
+
+
+//升级请求
+//ResponseType Game2C_PlayerRoleUp
+message C2Game_PlayerRoleUp // IActorRequest
+{
+	int32 RpcId = 90;
+}
+
+//升级回复
+message Game2C_PlayerRoleUp // IActorResponse
+{
+	int32 RpcId = 90;
+	int32 Error = 91;       
+	string Message = 92;
+	int32 CurLevel = 1;		//当前等级
+}

@@ -1,0 +1,76 @@
+//--------------天赋组件--------------
+//天赋组件数据消息体
+message NerveDataProto
+{
+	repeated NerveNode listLevelData = 1;
+	repeated NerveTierNode listReachTierData = 2;
+}
+
+//天赋数据节点
+message NerveNode
+{
+	int32 Id = 1;
+	int16 Level = 2;
+}
+
+//天赋层级数据节点
+message NerveTierNode
+{
+	int32 Id = 1;
+	int16 Tier = 2;
+}
+
+
+//解锁
+//ResponseType Game2C_NerveUnlock
+message C2Game_NerveUnlock // IActorRequest
+{
+	int32 RpcId = 90;
+	int32 NerveId = 1;  //神经ID
+}
+
+message Game2C_NerveUnlock // IActorResponse
+{
+	int32 RpcId = 90;
+	int32 Error = 91;
+	string Message = 92;
+	int32 NerveId = 1;  //神经ID
+	int16 NewTier = 2;  //新层数
+	int16 NewLevel = 3;  //新的等级
+}
+
+//升级
+//ResponseType Game2C_NerveLevelUp
+message C2Game_NerveLevelUp // IActorRequest
+{
+	int32 RpcId = 90;
+	int32 NerveId = 1;	//神经ID
+}
+
+message Game2C_NerveLevelUp // IActorResponse
+{
+	int32 RpcId = 90;
+	int32 Error = 91;
+	string Message = 92;
+	int32 NerveId = 1;	//神经ID
+	int16 NewTier = 2;  //新层数
+	int16 NewLevel = 3;  //新的等级
+}
+
+//突破层
+//ResponseType Game2C_NerveTierUp
+message C2Game_NerveTierUp // IActorRequest
+{
+	int32 RpcId = 90;
+	int32 NerveId = 1;  //神经ID
+}
+
+message Game2C_NerveTierUp // IActorResponse
+{
+	int32 RpcId = 90;
+	int32 Error = 91;
+	string Message = 92;
+	int32 NerveId = 1;	//神经ID
+	int16 NewTier = 2;  //新层数
+	int16 NewLevel = 3;  //新的等级
+}

@@ -1,0 +1,120 @@
+
+
+//ResponseType R2C_LoginAccount
+message C2R_LoginAccount // IRequest
+{
+	int32 RpcId = 90;
+	string  Account = 1;  // 帐号
+}
+
+message R2C_LoginAccount // IResponse
+{
+	int32 RpcId = 90;
+	int32 Error = 91;
+	string Message = 92;
+
+	int64 AccountID = 1;
+	int32 DefaultGameServerId = 2;		// 游戏服务器ID
+	string DefaultGameServerName = 3;	// 推荐服务器名字
+}
+
+
+
+
+
+//ResponseType R2C_LoginServerPlayerList
+message C2R_LoginServerPlayerList // IRequest
+{
+	int32 RpcId = 90;
+	int64 AccountID = 1;  			// 帐号ID
+}
+
+message R2C_LoginServerPlayerList // IResponse
+{
+	int32 RpcId = 90;
+	int32 Error = 91;
+	string Message = 92;
+
+	repeated LoginPlayerInfoProto HavePlayerList = 1;  //已有角色列表
+	repeated LoginServerInfoProto ServerList = 2; 		// 服务器列表
+}
+
+
+//玩家角色列表数据
+message LoginPlayerInfoProto
+{
+	int32 nGameServerID = 1;	 			// 角色所属服务器ID
+	string szGameServerName = 2;			// 服务器名字
+	string szName = 3; 						// 角色名
+	int64 lFightingCapacity = 4;			// 战力
+	int32 nHeadIcon = 5;						// 玩家头像
+}
+
+
+// 服务器列表
+message LoginServerInfoProto
+{
+	int32 nGameServerID = 1;	 				//游戏服务器ID
+	string szGameServerName = 2; 				//游戏服务器名字
+	int32 nHeadIcon = 3;
+}
+
+
+
+
+
+
+
+
+//ResponseType R2C_GetGateAddress
+message C2R_GetGateAddress // IRequest
+{
+	int32 RpcId = 90;
+	int64 AccountID = 1;
+	int32 GameServerId = 2;  // 游戏服务器ID
+}
+
+message R2C_GetGateAddress // IResponse
+{
+	int32 RpcId = 90;
+	int32 Error = 91;
+	string Message = 92;
+
+	
+	int64 Key = 1;			// 令牌
+	string Address = 3;		// 地址
+
+}
+
+
+
+
+//ResponseType G2C_LoginGate
+message C2G_LoginGate // IRequest
+{
+	int32 RpcId = 90;
+	int64 Key = 1;  	// 令牌
+
+}
+
+message G2C_LoginGate // IResponse
+{
+	int32 RpcId = 90;
+	int32 Error = 91;
+	string Message = 92;
+}
+
+
+//ResponseType G2C_LogoutGate
+message C2G_LogoutGate // IRequest
+{
+	int32 RpcId = 90;
+
+}
+
+message G2C_LogoutGate // IResponse
+{
+	int32 RpcId = 90;
+	int32 Error = 91;
+	string Message = 92;
+}

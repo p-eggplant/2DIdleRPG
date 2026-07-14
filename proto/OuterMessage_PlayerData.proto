@@ -1,0 +1,24 @@
+
+//玩家数据消息体
+message PlayerDataProto 
+{
+	int32 EnumId = 1;		//数据的枚举Id
+	int64 Value = 2;		//数据的数值
+}
+
+
+//改变玩家属性值
+message Game2C_PlayerDataChange // IActorMessage
+{
+	int32 EnumId = 1;		//数据的枚举Id
+	int64 Value = 2;		//数据的数值
+}
+
+//改变玩家属性值
+message Game2C_PlayerDataChangeDebug // IActorMessage
+{
+	int32 EnumId = 1;		//数据的枚举Id
+	int64 OldValue = 2;		//旧的数据值
+	int64 NewValue = 3;		//新的数据值
+	int32 Reason = 4;		// 原因
+}

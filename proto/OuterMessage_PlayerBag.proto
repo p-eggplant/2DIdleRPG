@@ -1,0 +1,34 @@
+//背包消息体
+message PlayerBagProto
+{
+	int32 ConfigId = 1;						//物资Id
+	int32 Num = 2;							//物资数量
+}
+
+//添加/移除物资
+message Game2C_BagChange // IActorMessage
+{
+	repeated PlayerBagProto BagNodes = 1;			//改变的背包物资列表
+}
+
+//添加/移除物资
+message Game2C_BagChangeDebug // IActorMessage
+{
+	repeated PlayerBagProto BagNodes = 1;			//改变的新背包物资列表
+	int32 Reason = 2;		// 原因
+}
+
+//售卖物资
+//ResponseType Game2C_BagSell
+message C2Game_BagSell // IActorRequest
+{
+	int32 RpcId = 90;
+	int32 nMaterialId = 1;		//物资ID
+}
+
+message Game2C_BagSell // IActorResponse
+{
+	int32 RpcId = 90;
+	int32 Error = 91;
+	string Message = 92;
+}
