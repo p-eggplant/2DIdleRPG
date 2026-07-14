@@ -25,7 +25,7 @@ namespace ET
     {
         protected override void Run(Session session, PlayerLoginInfo message)
         {
-            // 
+            // /
             Log.Debug("PlayerLoginInfo");
 
             Scene zoneScene = (Scene)session.DomainScene();
